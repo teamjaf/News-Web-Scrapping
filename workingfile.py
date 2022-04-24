@@ -4,10 +4,12 @@ import requests
 from bs4 import BeautifulSoup
 
 root = "https://www.google.com/"
-link = "https://www.google.com/search?q=bnp&source=lmns&tbm=nws&bih=929&biw=1920&hl=en&sa=X&ved=2ahUKEwi6ko-8lKv3AhVHidgFHaItAa4Q_AUoAnoECAEQAg"
+link = "https://www.google.com/search?q=biden&tbm=nws&source=lnt&tbs=sbd:1&sa=X&ved=0ahUKEwjAvsKDyOXtAhXBhOAKHXWdDgcQpwUIKQ&biw=1604&bih=760&dpr=1.2"
 
 req = Request(link, headers={'User-Agent': 'Mozilla/5.5'})
 webpage = urlopen(req).read()
 with requests.Session() as c:
     soup = BeautifulSoup(webpage, 'html5lib')
     print(soup)
+    for item in soup.find_all('div', attrs={'class': 'KCrYT'}):
+        print(item)
