@@ -12,4 +12,6 @@ with requests.Session() as c:
     soup = BeautifulSoup(webpage, 'html5lib')
     print(soup)
     for item in soup.find_all('div', attrs={'class': 'KCrYT'}):
-        print(item)
+        raw_link =(item.find('a', href=True)['href'])
+        link = raw_link.split("/url?q=")[1]
+        print(link)
