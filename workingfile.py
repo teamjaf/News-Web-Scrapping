@@ -13,5 +13,5 @@ with requests.Session() as c:
     print(soup)
     for item in soup.find_all('div', attrs={'class': 'KCrYT'}):
         raw_link =(item.find('a', href=True)['href'])
-        link = raw_link.split("/url?q=")[1]
-        print(link)
+        show = raw_link.split("/url?q=")[1]
+        print(show)
